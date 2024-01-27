@@ -13,9 +13,6 @@ public class Weapon : MonoBehaviour
     public float fireRate;
     float timeToFire;
 
-    //[Header("AUDIO")]
-    //new AudioSource audio;
-
     [Header("ANIMACION")]
     Animator animator;
 
@@ -23,43 +20,33 @@ public class Weapon : MonoBehaviour
 
     void Start()
     {
-        //audio = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
     }
 
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-            TimeToShoot();
-        else
-            animator.SetBool("PlayerIsShooting", false);
-    }
-
-
-
-    void TimeToShoot()
-    {
-        if (timeToFire <= 0f)
+        if (timeToFire <= 0 && Input.GetMouseButtonDown(0))
         {
-            SHOOT();
+            animator.SetBool("PlayerIsShooting", true);
 
+            SHOOT();
             timeToFire = fireRate;
         }
-        else 
-            timeToFire -= Time.deltaTime;
+            else
+            {
+                animator.SetBool("PlayerIsShooting", false);
+                timeToFire -= Time.deltaTime;
+            }
     }
 
 
     void SHOOT()
     {
-        animator.SetBool("PlayerIsShooting", true);
-
         GameObject bulletClone = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity);
         Rigidbody bulletRB = bulletClone.GetComponent<Rigidbody>();
         bulletRB.AddRelativeForce(transform.forward * force, ForceMode.Impulse);
 
-        // audio.Play();
         Destroy(bulletClone, 5f);
     }
 }

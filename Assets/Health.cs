@@ -11,8 +11,11 @@ public class Health : MonoBehaviour
     [Header("BARRA DE VIDA")]
     [SerializeField] HealthBar healthBar;
 
+    [Header("AUDIO")]
+    [SerializeField] new AudioSource damageAudio;
 
-    private new AudioSource audio;
+    public Manager manager;
+
 
 
 
@@ -20,11 +23,7 @@ public class Health : MonoBehaviour
     {
         health = maxHealth;
         healthBar.StartHealth(health);
-
-
-        audio = GetComponent<AudioSource>();
     }
-
 
 
     public void RecibirDaño(float damage)
@@ -33,17 +32,17 @@ public class Health : MonoBehaviour
 
         healthBar.ChangeActualHealth(health);
 
+        damageAudio.Play();
+
+
         if (health <= 0)
-        {
-            Debug.Log("Moriste");
-        }
+            manager.ChangeScene(3);
     }
 
 
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("EnemyBullet") || collision.gameObject.CompareTag("Enemy"))
-            RecibirDaño(2);
+        if (collision.gameObject.CompareTag("Enemy"))
+            RecibirDaño(1);
     }
 }

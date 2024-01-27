@@ -21,10 +21,12 @@ public class HealthBar : MonoBehaviour
         healthSlider.maxValue = MaxHealth;
     }
 
+
     public void ChangeActualHealth (float ActualHealth)
     {
         healthSlider.value = ActualHealth;
     }
+
 
     public void StartHealth (float ActualHealth)
     {
