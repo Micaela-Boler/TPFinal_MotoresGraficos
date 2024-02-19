@@ -53,10 +53,4 @@ public class EnemyMovement : MonoBehaviour
     {
         agent.SetDestination(_transform.position);
     }
-
-
-    //corrutina para ir a una posicion determinada (arreglo de posiciones)
-    //Si el jugador se acerca mucho comienza a seguirlo
-    //Si esta a una distancia muy cercana, deja de correr y ataca al objetivo
-    //Si se aleja entonces deja de seguirlo u vuelve a iniciat la corrutina
 }

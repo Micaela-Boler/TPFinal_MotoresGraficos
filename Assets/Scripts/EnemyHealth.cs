@@ -32,7 +32,6 @@ public class EnemyHealth : MonoBehaviour
     private void RecibirDaño(float damage)
     {
         health -= damage;
-        //animator.SetBool("Hit", true);
 
         if (health <= 0)
             EnemyDeath();

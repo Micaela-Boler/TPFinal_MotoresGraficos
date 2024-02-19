@@ -417,7 +417,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 3
+  maxHealth: 2
   coin: {fileID: 8422773535110301919, guid: 3a547ea9c45fbd646a2349788e57adc1, type: 3}
 --- !u!65 &8135721776512599615
 BoxCollider:
@@ -1015,7 +1015,7 @@ GameObject:
   - component: {fileID: 6224663542587845091}
   m_Layer: 0
   m_Name: 1H_Sword_Offhand
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

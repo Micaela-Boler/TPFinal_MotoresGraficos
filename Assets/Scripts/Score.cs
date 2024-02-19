@@ -35,6 +35,6 @@ public class Score : MonoBehaviour
 
     void updateScore()
     {
-        puntosInterfaz.text = puntos.ToString();
+        puntosInterfaz.text = puntos.ToString() + "/" + "10";
     }
 }
